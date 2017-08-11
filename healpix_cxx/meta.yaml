@@ -1,0 +1,25 @@
+package:
+   name: healpix_cxx
+   version: "3.31"
+
+source:
+  url: https://downloads.sourceforge.net/project/healpix/Healpix_3.31/Healpix_3.31_2016Aug26.tar.gz
+
+build:
+  number: 0
+
+requirements:
+ 
+ build: 
+     - cfitsio
+   
+ run:
+    - cfitsio
+
+extra:
+  maintainers:
+   - name of maintainer
+   
+about:
+  home: https://sourceforge.net/projects/healpix/
+  license: BSD3
