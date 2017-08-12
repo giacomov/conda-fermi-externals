@@ -1,0 +1,22 @@
+package:
+   name: fftw
+   version: "3.3.6"
+
+source:
+  url: http://fftw.org/fftw-3.3.6-pl2.tar.gz
+
+build:
+  number: 0
+
+requirements:
+ 
+ build: 
+   - mpi4py
+   - libgfortran
+   
+ run:
+   - mpi4py
+   - libgfortran
+   
+about:
+  home: http://fftw.org
