@@ -1,0 +1,24 @@
+about: {home: 'http://www.freedesktop.org/wiki/Software/cppunit/', license: LGPLv2}
+build:
+  entry_points: []
+  features: []
+  string: ''
+  track_features: []
+package: {name: cppunit, version: 1.13.2}
+requirements:
+  build: []
+  conflicts: []
+  run: []
+source:
+  fn: cppunit-1.13.2.tar.gz
+  git_rev: ''
+  md5: ''
+  patches: []
+  path: ''
+  svn_rev: ''
+  url: http://dev-www.libreoffice.org/src/cppunit-1.13.2.tar.gz
+test:
+  commands: []
+  files: []
+  imports: []
+  requires: []

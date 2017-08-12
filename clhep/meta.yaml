@@ -1,0 +1,15 @@
+package:
+  name: clhep
+  version: "2.1.4.2"
+
+source:
+  url: https://proj-clhep.web.cern.ch/proj-clhep/DISTRIBUTION/tarFiles/clhep-2.1.4.2.tgz
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - autoconf
+    - automake
+    - libtool

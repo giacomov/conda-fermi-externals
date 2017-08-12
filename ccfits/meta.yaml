@@ -1,6 +1,6 @@
 package:
-   name: cfitsio
-   version: "5.3.42"
+   name: ccfits
+   version: "2.5"
 
 source:
   fn: heasoft-6.21.tar
@@ -11,10 +11,15 @@ build:
 
 requirements:
  
- build: 
+ build:
+     - cfitsio
+     - libtool
+     - automake
+     - cmake
    
  run:
-   
+     - cfitsio
+
 about:
   home: https://heasarc.gsfc.nasa.gov/fitsio/
   license: GPL2

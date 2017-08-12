@@ -15,5 +15,9 @@ yum install -y zip
 
 source /root/miniconda/bin/activate
 
-conda build ${MY_CONDA_PACKAGE}
+# Copy .tar if any
+mkdir -p /root/miniconda/conda-bld/src_cache
+cp /conda-fermi-externals/*.tar* /root/miniconda/conda-bld/src_cache
+
+conda build -c fermi_dev_externals ${MY_CONDA_PACKAGE}
 
