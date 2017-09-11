@@ -1,7 +1,7 @@
 # Get miniconda
 if [ "$(uname)" == "Darwin" ]; then
 
-    wget -q https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O ~/miniconda.sh
+    curl https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -o ~/miniconda.sh
 
 else
     
