@@ -9,7 +9,4 @@ matrix:
         - os: osx
           language: generic
           
-#install:
-#    - ./travis_install.sh
-
 script: python build_all.py
