@@ -1,0 +1,15 @@
+language: python
+
+matrix:
+    include:
+        - os: linux
+          sudo: required
+          python: 2.7
+          
+        - os: linux
+          language: generic
+          
+#install:
+#    - ./travis_install.sh
+
+script: make test

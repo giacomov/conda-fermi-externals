@@ -5,6 +5,8 @@ import subprocess
 import logging
 import os
 import subprocess
+from sys import platform
+
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(name)s %(message)s')
 
@@ -42,9 +44,21 @@ if __name__ == "__main__":
     
     all_packages_string = " ".join(packages)
     
-    cmd_line = '''docker run -v %s:/conda-fermi-externals --rm -it -e MY_CONDA_PACKAGE='%s' -e MY_CONDA_CHANNEL=%s  %s bash -c "cd /conda-fermi-externals ; source build_inside_container.sh"'''
+    if platform == "linux" or platform == "linux2":
     
-    cmd_line = cmd_line % (recipe_directory, all_packages_string, args.channel, args.container)
+        cmd_line = '''docker run -v %s:/conda-fermi-externals --rm -it -e MY_CONDA_PACKAGE='%s' -e MY_CONDA_CHANNEL=%s  %s bash -c "cd /conda-fermi-externals ; source build_inside_container.sh"'''
+    
+        cmd_line = cmd_line % (recipe_directory, all_packages_string, args.channel, args.container)
+    
+    else:
+        
+        # OS X. Use system
+        
+        os.environ['MY_CONDA_PACKAGE'] = all_packages_string
+        os.environ['MY_CONDA_CHANNEL'] = args.channel
+        
+        cmd_line = """source build_inside_container.sh"""
+
     
     log.info("About to run:")
     log.info(cmd_line)
