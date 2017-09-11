@@ -26,7 +26,6 @@ cp /conda-fermi-externals/*.tar* /root/miniconda/conda-bld/src_cache
 if [ -z ${CI+x} ]; then
 
     # We are in Travis CI
-    # Use this if you want to upload to the channel
 
     conda config --set anaconda_upload no
 
@@ -38,7 +37,7 @@ else
 
     conda config --set anaconda_upload yes
 
-    conda build -c fermi_dev_externals ${MY_CONDA_PACKAGE}
+    conda build -c ${MY_CONDA_CHANNEL} ${MY_CONDA_PACKAGE}
 
 fi
 
