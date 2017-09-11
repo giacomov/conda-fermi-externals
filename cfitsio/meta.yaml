@@ -13,9 +13,11 @@ requirements:
 
  build:
    - gcc [osx]
+   - curl
 
  run:
    - libgfortran [osx]
+   - curl
 
 about:
   home: https://heasarc.gsfc.nasa.gov/fitsio/
