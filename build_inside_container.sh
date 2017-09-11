@@ -1,11 +1,11 @@
 # Get miniconda
 if [ "$(uname)" == "Darwin" ]; then
 
-    curl https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -o ~/miniconda.sh
+    curl https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh -o ~/miniconda.sh
 
 else
     
-    wget -q https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
+    wget -q https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O ~/miniconda.sh
     
 fi
 
