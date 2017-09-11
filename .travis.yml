@@ -9,4 +9,4 @@ matrix:
         - os: osx
           language: generic
           
-script: python build_all.py
+script: python build_all.py -c dumb
