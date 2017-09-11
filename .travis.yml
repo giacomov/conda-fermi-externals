@@ -6,10 +6,10 @@ matrix:
           sudo: required
           python: 2.7
           
-        - os: linux
+        - os: osx
           language: generic
           
 #install:
 #    - ./travis_install.sh
 
-script: make test
+script: python build_all.py
