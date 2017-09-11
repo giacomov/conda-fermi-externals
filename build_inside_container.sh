@@ -9,19 +9,21 @@ else
     
 fi
 
-bash ~/miniconda.sh -b -p $HOME/miniconda
-export PATH="$HOME/miniconda/bin:$PATH"
+rm -rf $HOME/miniconda_fermi_externals_dev_build
+
+bash ~/miniconda.sh -b -p $HOME/miniconda_fermi_externals_dev_build
+export PATH="$HOME/miniconda_fermi_externals_dev_build/bin:$PATH"
 
 conda install -y conda-build
 conda install -y anaconda-client
 conda update -y conda conda-build anaconda-client
 
 # Activate environment
-source /root/miniconda/bin/activate
+source $HOME/miniconda_fermi_externals_dev_build/bin/activate
 
 # Copy .tar if any
-mkdir -p /root/miniconda/conda-bld/src_cache
-cp /conda-fermi-externals/*.tar* /root/miniconda/conda-bld/src_cache
+mkdir -p $HOME/miniconda_fermi_externals_dev_build/conda-bld/src_cache
+cp /conda-fermi-externals/*.tar* $HOME/miniconda_fermi_externals_dev_build/conda-bld/src_cache
 
 if [ -z ${CI+x} ]; then
 
