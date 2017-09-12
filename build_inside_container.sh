@@ -1,3 +1,14 @@
+if [ -z ${CI+x} ]; then
+
+    echo "************************ Local build *******************"
+
+else
+
+    echo "************************ TRAVIS CI BUILD *******************"
+
+fi
+
+
 # Get miniconda
 if [ "$(uname)" == "Darwin" ]; then
 
@@ -28,22 +39,25 @@ mkdir -p $HOME/miniconda_fermi_externals_dev_build/conda-bld/src_cache
 curl -s 'https://heasarc.nasa.gov/cgi-bin/Tools/tarit/tarit.pl?mode=download&arch=src&src_pc_linux_sci=Y&src_other_specify=&general=futils' > $HOME/miniconda_fermi_externals_dev_build/conda-bld/src_cache/heasoft-6.22src.tar.gz
 
 if [ -z ${CI+x} ]; then
-
-    # We are in Travis CI
     
-    echo "TRAVIS BUILD"
-
-    conda config --set anaconda_upload no
-
-    conda build --no-anaconda-upload --quiet ${MY_CONDA_PACKAGE} >> build.log 2>&1 || cat build.log | tail -1000
-
-else
-
+    # Local build
+    
     # Use this if you want to upload to the channel
 
     conda config --set anaconda_upload yes
 
     conda build -c ${MY_CONDA_CHANNEL} ${MY_CONDA_PACKAGE}
+
+else
+
+    # We are in Travis CI
+    
+    echo "TRAVIS BUILD: redirecting log, and showing it only on failure"
+
+    conda config --set anaconda_upload no
+
+    conda build --no-anaconda-upload --quiet ${MY_CONDA_PACKAGE} >> build.log 2>&1 || cat build.log | tail -1000
+
 
 fi
 
