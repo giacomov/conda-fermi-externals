@@ -45,9 +45,15 @@ if __name__ == "__main__":
     all_packages_string = " ".join(packages)
     
     if platform == "linux" or platform == "linux2":
-    
-        cmd_line = '''docker run -v %s:/conda-fermi-externals --rm -it -e MY_CONDA_PACKAGE='%s' -e MY_CONDA_CHANNEL=%s  %s bash -c "cd /conda-fermi-externals ; source build_inside_container.sh"'''
-    
+        
+        if 'CI' in os.environ:
+            
+            cmd_line = '''docker run -v %s:/conda-fermi-externals --rm -it -e CI='yes' -e MY_CONDA_PACKAGE='%s' -e MY_CONDA_CHANNEL=%s  %s bash -c "cd /conda-fermi-externals ; source build_inside_container.sh"'''
+            
+        else:
+            
+            cmd_line = '''docker run -v %s:/conda-fermi-externals --rm -it -e MY_CONDA_PACKAGE='%s' -e MY_CONDA_CHANNEL=%s  %s bash -c "cd /conda-fermi-externals ; source build_inside_container.sh"'''
+
         cmd_line = cmd_line % (recipe_directory, all_packages_string, args.channel, args.container)
     
     else:

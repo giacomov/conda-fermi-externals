@@ -33,7 +33,7 @@ if [ -z ${CI+x} ]; then
 
     conda config --set anaconda_upload no
 
-    conda build --no-anaconda-upload --quiet ${MY_CONDA_PACKAGE}
+    conda build --no-anaconda-upload --quiet ${MY_CONDA_PACKAGE} >> build.log 2>&1 || cat build.log | tail -1000
 
 else
 
