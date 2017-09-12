@@ -15,6 +15,4 @@ fi
 
 # Now download the .tar file from heasoft so we do not download it 3 times
 sudo mkdir -p /conda-fermi-externals
-curl 'https://heasarc.nasa.gov/cgi-bin/Tools/tarit/tarit.pl?mode=download&arch=src&src_pc_linux_sci=Y&src_other_specify=&general=futils' 
-
-mv tarit.pl\?mode\=download\&arch\=src\&src_pc_linux_sci\=Y\&src_other_specify\=\&general\=futils /conda-fermi-externals/heasoft-6.22src.tar.gz
+curl 'https://heasarc.nasa.gov/cgi-bin/Tools/tarit/tarit.pl?mode=download&arch=src&src_pc_linux_sci=Y&src_other_specify=&general=futils' > /conda-fermi-externals/heasoft-6.22src.tar.gz
