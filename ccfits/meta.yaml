@@ -3,7 +3,7 @@ package:
    version: "2.5"
 
 source:
-  fn: heasoft-6.21.tar
+  fn: heasoft-6.22src.tar.gz
   url: https://heasarc.nasa.gov/cgi-bin/Tools/tarit/tarit.pl?mode=download&arch=src&src_pc_linux_sci=Y&src_other_specify=&general=futils
 
 build:
