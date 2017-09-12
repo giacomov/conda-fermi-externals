@@ -9,14 +9,15 @@ build:
   number: 0
 
 requirements:
- 
- build: 
+
+ build:
    - mpi4py
+   - gcc
    - libgfortran
-   
+
  run:
    - mpi4py
    - libgfortran
-   
+
 about:
   home: http://fftw.org

@@ -5,18 +5,19 @@ package:
 source:
   fn: heasoft-6.22src.tar.gz
   url: https://heasarc.nasa.gov/cgi-bin/Tools/tarit/tarit.pl?mode=download&arch=src&src_pc_linux_sci=Y&src_other_specify=&general=futils
+  md5: 1fb70ee11026bcf51f20fdee68ac456a
 
 build:
   number: 0
 
 requirements:
- 
+
  build:
      - cfitsio
      - libtool
      - automake
      - cmake
-   
+
  run:
      - cfitsio
 

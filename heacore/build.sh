@@ -14,8 +14,20 @@ export OLD_CFITSIO_VERS=`./hd_scanenv ./hd_config_info CFITSIO_VERS`
 
 # Change them to an empty string, so that the linking will happen on the lib*.so file
 # instead of lib*[version].so file (which might not match)
+case "$(uname)" in
+Linux)
 sed -i "s/CCFITS_VERS=${OLD_CCFITS_VERS}/CCFITS_VERS=''/g" hd_config_info
 sed -i "s/CFITSIO_VERS=${OLD_CFITSIO_VERS}/CFITSIO_VERS=''/g" hd_config_info
+;;
+Darwin)
+sed -i '' "s/CCFITS_VERS=${OLD_CCFITS_VERS}/CCFITS_VERS=''/g" hd_config_info
+sed -i '' "s/CFITSIO_VERS=${OLD_CFITSIO_VERS}/CFITSIO_VERS=''/g" hd_config_info
+;;
+*)
+echo "Unsupported"
+exit 1
+;;
+esac
 
 autoconf -i
 
