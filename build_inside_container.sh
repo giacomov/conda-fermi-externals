@@ -55,9 +55,18 @@ else
     echo "TRAVIS BUILD: redirecting log, and showing it only on failure"
 
     conda config --set anaconda_upload no
-
-    conda build --no-anaconda-upload --quiet ${MY_CONDA_PACKAGE} >> build.log 2>&1 || cat build.log | tail -1000
-
+    
+    for package in $MY_CONDA_PACKAGE
+    
+    do    
+        
+        echo "Building $package"
+        
+        conda build --no-anaconda-upload --quiet ${package} >> build.log 2>&1 || cat build.log | tail -1000
+        
+        echo "Package $package built"
+        
+    done
 
 fi
 
