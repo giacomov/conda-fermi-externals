@@ -56,7 +56,7 @@ else
 
     conda config --set anaconda_upload no
     
-    conda build --no-anaconda-upload --quiet ${package} >> build.log 2>&1 && exit 0 || exit 10 &
+    conda build --no-anaconda-upload --quiet ${MY_CONDA_PACKAGE} >> build.log 2>&1 && exit 0 || exit 10 &
     
     export pid=$!
     
