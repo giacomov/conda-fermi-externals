@@ -6,7 +6,7 @@ if [ "$(uname)" == "Darwin" ]; then
 else
     
     wget -q https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O ~/miniconda.sh
-    yum install -y zip
+    yum install -y zip curl
     
 fi
 
@@ -24,7 +24,8 @@ source $HOME/miniconda_fermi_externals_dev_build/bin/activate
 
 # Copy .tar if any
 mkdir -p $HOME/miniconda_fermi_externals_dev_build/conda-bld/src_cache
-cp /conda-fermi-externals/*.tar* $HOME/miniconda_fermi_externals_dev_build/conda-bld/src_cache
+
+curl 'https://heasarc.nasa.gov/cgi-bin/Tools/tarit/tarit.pl?mode=download&arch=src&src_pc_linux_sci=Y&src_other_specify=&general=futils' > $HOME/miniconda_fermi_externals_dev_build/conda-bld/src_cache/heasoft-6.22src.tar.gz
 
 if [ -z ${CI+x} ]; then
 
