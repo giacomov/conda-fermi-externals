@@ -6,6 +6,7 @@ if [ "$(uname)" == "Darwin" ]; then
 else
     
     wget -q https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O ~/miniconda.sh
+    yum install -y zip
     
 fi
 
