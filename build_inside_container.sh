@@ -30,6 +30,8 @@ curl -s 'https://heasarc.nasa.gov/cgi-bin/Tools/tarit/tarit.pl?mode=download&arc
 if [ -z ${CI+x} ]; then
 
     # We are in Travis CI
+    
+    echo "TRAVIS BUILD"
 
     conda config --set anaconda_upload no
 
