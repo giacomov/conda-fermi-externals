@@ -13,6 +13,9 @@ fi
 if [ "$(uname)" == "Darwin" ]; then
 
     curl https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh -o ~/miniconda.sh
+    
+    brew install autoconf
+    brew install awk
 
 else
     
@@ -38,8 +41,6 @@ mkdir -p $HOME/miniconda_fermi_externals_dev_build/conda-bld/src_cache
 
 curl -s 'https://heasarc.nasa.gov/cgi-bin/Tools/tarit/tarit.pl?mode=download&arch=src&src_pc_linux_sci=Y&src_other_specify=&general=futils' > $HOME/miniconda_fermi_externals_dev_build/conda-bld/src_cache/heasoft-6.22src.tar.gz
 
-chmod u-r $HOME/miniconda_fermi_externals_dev_build/conda-bld/src_cache/heasoft-6.22src.tar.gz
-
 if [ -z ${CI+x} ]; then
     
     # Local build
@@ -58,7 +59,7 @@ else
 
     conda config --set anaconda_upload no
     
-    conda build --no-anaconda-upload --quiet ${MY_CONDA_PACKAGE} >> build.log 2>&1 && exit 0 || exit 10 &
+    conda build --no-anaconda-upload ${MY_CONDA_PACKAGE} >> build.log 2>&1 && exit 0 || exit 10 &
     
     export pid=$!
     
