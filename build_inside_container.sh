@@ -13,6 +13,9 @@ fi
 if [ "$(uname)" == "Darwin" ]; then
 
     curl https://repo.continuum.io/miniconda/Miniconda2-latest-MacOSX-x86_64.sh -o ~/miniconda.sh
+    
+    brew install autoconf
+    brew install awk
 
 else
     
@@ -56,7 +59,7 @@ else
 
     conda config --set anaconda_upload no
     
-    conda build --no-anaconda-upload --quiet ${MY_CONDA_PACKAGE} >> build.log 2>&1 && exit 0 || exit 10 &
+    conda build --no-anaconda-upload ${MY_CONDA_PACKAGE} >> build.log 2>&1 && exit 0 || exit 10 &
     
     export pid=$!
     
