@@ -5,7 +5,7 @@ export CXXFLAGS='-I${PREFIX}/include -O2 -Wall --pedantic -Wno-comment -Wno-long
 export CPPFLAGS="-I${PREFIX}/include"
 export LDFLAGS="-L${PREFIX}/lib"
 
-cd heacore/BUILD_DIR
+cd heasoft-6.22/heacore/BUILD_DIR
 
 # Fix versions of CCfits and cfitsio
 # Get defined versions

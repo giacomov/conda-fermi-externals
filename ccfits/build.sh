@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd heacore/CCfits
+cd heasoft-6.22/heacore/CCfits
 
 mkdir build
 cd build

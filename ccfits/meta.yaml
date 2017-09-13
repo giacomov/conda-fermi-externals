@@ -5,6 +5,7 @@ package:
 source:
   fn: heasoft-6.22src.tar.gz
   url: https://github.com/fermi-lat/heacore/archive/6.22.tar.gz
+  md5: df37b7bb3aea5546895b0abb596f6a94
 
 build:
   number: 0
