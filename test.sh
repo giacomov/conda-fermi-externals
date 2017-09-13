@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# A random command
+
 python -c "import time;time.sleep(3);1/1" && exit 0 || exit 10 &
 
 export pid=$!
@@ -27,3 +29,4 @@ else
     echo "bad"
 
 fi
+
