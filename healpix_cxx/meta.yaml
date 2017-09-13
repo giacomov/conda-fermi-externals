@@ -9,17 +9,19 @@ build:
   number: 0
 
 requirements:
- 
- build: 
-     - cfitsio
-   
+
+ build:
+    - cfitsio
+    - openssl [osx]
+
  run:
     - cfitsio
+    - openssl [osx]
 
 extra:
   maintainers:
    - name of maintainer
-   
+
 about:
   home: https://sourceforge.net/projects/healpix/
   license: BSD3

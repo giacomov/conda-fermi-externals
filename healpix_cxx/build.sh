@@ -19,9 +19,20 @@ for lib in *.a
 do
 
     ar -x $lib
-        
-    gcc -L${PREFIX}/lib -lcfitsio -shared *.o -o ${lib%%.*}.so
-    
+
+    case "$(uname)" in
+    Linux)
+      gcc -L${PREFIX}/lib -lcfitsio -shared *.o -o ${lib%%.*}.so
+    ;;
+    Darwin)
+      gcc -dynamiclib -flat_namespace -undefined suppress -L${PREFIX}/lib -lcfitsio *.o -o ${lib%%.*}.dylib
+    ;;
+    *)
+    echo "Unsupported"
+    exit 1
+    ;;
+    esac
+
     rm -rf *.o
 
 done
