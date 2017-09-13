@@ -2,31 +2,12 @@
 
 # A random command
 
-python -c "import time;time.sleep(3);1/1" && exit 0 || exit 10 &
-
-export pid=$!
-
-while ps a | awk '{print $1}' | grep -q "${pid}"; do
+if python log_regulator.py 100 test.log python output_test.py ; then
     
-    echo "Still building"
-    
-    sleep 1
+    echo "Success"
 
-done
-
-wait $pid
-
-exit_status=$?
-
-echo $exit_status
-
-if [[ $exit_status -eq 0 ]]; then
-
-    echo "good"
-    
 else
-
-    echo "bad"
+    
+    tail -10 test.log
 
 fi
-

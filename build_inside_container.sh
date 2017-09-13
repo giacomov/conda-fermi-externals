@@ -54,27 +54,7 @@ else
 
     conda config --set anaconda_upload no
     
-    conda build --no-anaconda-upload ${MY_CONDA_PACKAGE} >> build.log 2>&1 && exit 0 || exit 10 &
-    
-    export pid=$!
-    
-    while ps a | awk '{print $1}' | grep -q "${pid}"; do
-        
-        echo "Still building. Last 100 lines:"
-        
-        cat build.log | tail -100
-        
-        sleep 120
-    
-    done
-    
-    wait $pid
-
-    exit_status=$?
-
-    echo $exit_status
-
-    if [[ $exit_status -eq 0 ]]; then
+    if python log_regulator.py 100 build.log conda build --no-anaconda-upload ${MY_CONDA_PACKAGE} ; then
 
         echo "Build finished successfully!"
     
@@ -82,9 +62,9 @@ else
 
         echo "Building errored"
     
-        echo "Last 1000 lines of log:"
+        echo "Last 200 lines of log:"
         
-        cat build.log | tail -1000
+        cat build.log | tail -200
         
         exit -1
 
