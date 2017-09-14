@@ -2,8 +2,13 @@
 
 if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
 
-    # Nothing to do
-    echo "nothing to do"
+    # Install gfortran and autoconf
+    
+    curl https://ayera.dl.sourceforge.net/project/hpc/hpc/g95/gfortran-7.1-bin.tar.gz -o gfortran-7.1-bin.tar.gz
+    
+    sudo tar xvf gfortran-7.1-bin.tar.gz -C /
+    
+    brew install autoconf
     
 else
     # Install some custom requirements on Linux
