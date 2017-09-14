@@ -31,7 +31,7 @@ esac
 
 autoconf -i
 
-./configure --prefix=${PREFIX} --exec_prefix=${PREFIX} --with-components="lynx ape heaio heautils ahlog heainit ahgen ahfits heaapp mpfit ast heasp hoops st_stream" LDFLAGS="-Wl,-rpath,${PREFIX}/lib"
+./configure --prefix=${PREFIX} --exec_prefix=${PREFIX} --with-components="ape heaio heautils heainit hoops" LDFLAGS="-Wl,-rpath,${PREFIX}/lib"
 
 ./hmake HD_EXEC_PFX=${PREFIX} HD_TOP_EXEC_PFX=${PREFIX}
 ./hmake install HD_EXEC_PFX=${PREFIX} HD_TOP_EXEC_PFX=${PREFIX}
