@@ -8,6 +8,7 @@ matrix:
           
         - os: osx
           language: generic
+          osx_image: xcode8.3
 
 install:
     - source travis_install.sh
