@@ -13,7 +13,6 @@ build:
 requirements:
 
  build:
-     - gcc [osx]
      - cfitsio
      - ccfits
      - readline [osx]
