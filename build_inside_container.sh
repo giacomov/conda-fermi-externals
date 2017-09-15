@@ -50,7 +50,7 @@ else
 
     conda config --set anaconda_upload no
     
-    if python log_regulator.py 100 build.log conda build --no-anaconda-upload ${MY_CONDA_PACKAGE} ; then
+    if python log_regulator.py 100 build.log conda build -c ${MY_CONDA_CHANNEL} --no-anaconda-upload ${MY_CONDA_PACKAGE} ; then
 
         echo "Build finished successfully!"
     

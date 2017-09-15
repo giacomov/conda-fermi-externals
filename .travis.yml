@@ -13,4 +13,4 @@ matrix:
 install:
     - source travis_install.sh
 
-script: python build_all.py -c dumb
+script: python build_all.py -c conda-forge
