@@ -13,10 +13,10 @@ build:
 requirements:
 
  build:
-   - curl
+   - curl [linux]
 
  run:
-   - curl
+   - curl [linux]
 
 about:
   home: https://heasarc.gsfc.nasa.gov/fitsio/
